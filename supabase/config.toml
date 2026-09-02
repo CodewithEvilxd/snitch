@@ -1,7 +1,4 @@
-project_id = "your-pre-supabase-project-ref"
-
-[functions.stripe-webhook]
-verify_jwt = false
+project_id = "vizzakfnowalvscavmth"
 
 [functions.activate-license]
 verify_jwt = false

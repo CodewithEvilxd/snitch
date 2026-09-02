@@ -7,24 +7,24 @@ import {
 
 const faqs = [
   {
-    question: "Is Snitch free?",
-    answer: "Snitch has a 30-day trial. After the trial, buy a license and activate it with your checkout email.",
+    question: "Is Snitch completely free?",
+    answer: "Yes! Snitch is 100% free and open-source under the MIT license. There are no subscriptions, no trials, no paywalls, and no hidden fees.",
   },
   {
-    question: "How does the license work?",
-    answer: "Each license allows 2 active device activations. Active licenses are revalidated online periodically, while captures remain local.",
+    question: "Can I use Snitch for commercial projects?",
+    answer: "Yes, you can use Snitch for both personal and commercial work without any restrictions or licenses needed.",
   },
   {
     question: "What platforms does Snitch support?",
-    answer: "macOS (Intel & Apple Silicon), Windows (portable), and Linux (AppImage). Same feature set on all three.",
+    answer: "Web (all modern browsers), macOS (Intel & Apple Silicon), Windows (portable), and Linux (AppImage). Same rich feature set everywhere.",
   },
   {
-    question: "Does Snitch upload my data?",
-    answer: "No. Everything runs locally. No analytics, no telemetry, no accounts. Your screen stays yours.",
+    question: "Does Snitch upload or track my data?",
+    answer: "No. Everything runs 100% locally in your browser/machine. Zero telemetry, no cloud tracking, and no accounts required. Your screen stays completely yours.",
   },
   {
     question: "How do I get started?",
-    answer: "Download the binary for your platform, launch it, and press Cmd+Shift+S (macOS) or Ctrl+Shift+S. No install wizard needed.",
+    answer: "Just open Snitch in your browser or launch the desktop app, capture your screen, add annotations, and copy or save instantly.",
   },
 ];
 
@@ -37,7 +37,7 @@ export const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Everything you need to know about Snitch and billing.
+            Everything you need to know about Snitch.
           </p>
         </div>
         
