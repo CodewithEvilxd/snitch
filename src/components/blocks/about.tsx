@@ -7,7 +7,7 @@ const About = () => {
     <section className="container mt-10 flex max-w-5xl flex-col-reverse gap-8 md:mt-14 md:gap-14 lg:mt-20 lg:flex-row lg:items-end">
       {/* Images Left - Text Right */}
       <div className="flex flex-col gap-8 lg:gap-16 xl:gap-20">
-        <imgSection
+        <ImageSection
           images={[
             { src: "/about/1.webp", alt: "Team collaboration" },
             { src: "/about/2.webp", alt: "Team workspace" },
@@ -37,7 +37,7 @@ const About = () => {
             "No telemetry, no accounts required, no bloated popups. Just pure, unadulterated visual speed.",
           ]}
         />
-        <imgSection
+        <ImageSection
           images={[
             { src: "/about/3.webp", alt: "Modern workspace" },
             { src: "/about/4.webp", alt: "Team collaboration" },
@@ -67,8 +67,7 @@ export function ImageSection({ images, className }: ImageSectionProps) {
           <img
             src={image.src}
             alt={image.alt}
-            fill
-            className="object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
       ))}

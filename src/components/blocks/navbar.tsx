@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { ChevronRight } from "lucide-react";
 
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ToggleTheme as ThemeToggle } from "@/components/ui/toggle-theme";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,

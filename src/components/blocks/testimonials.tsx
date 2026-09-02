@@ -118,8 +118,7 @@ export const Testimonials = ({
                           <img
                             src={testimonial.image}
                             alt={testimonial.author}
-                            fill
-                            className="object-cover object-top"
+                            className="w-full h-full object-cover object-top"
                           />
                         </div>
                         <div className="flex flex-1 flex-col justify-between gap-10 p-6">
