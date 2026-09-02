@@ -1,5 +1,5 @@
 module.exports = {
   "buyLicenseUrl": "https://github.com/codewithevilxd/snitch",
-  "licenseApiBaseUrl": "https://your-pre-supabase-project-ref.supabase.co/functions/v1",
-  "supabasePublishableKey": "YOUR_PRE_SUPABASE_PUBLISHABLE_KEY"
+  "licenseApiBaseUrl": "https://vizzakfnowalvscavmth.supabase.co/functions/v1",
+  "supabasePublishableKey": "sb_publishable_UGgRvt4x1wqxhLP85JeCYg_NvIn8XIM"
 };
