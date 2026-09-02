@@ -118,7 +118,7 @@ export const ResourceAllocation = () => {
     >
       <div className="">
         <h2 className="container text-center text-3xl tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl">
-          Mainline your resource allocation and execution
+          Supercharge your visual workflow and capture speed
         </h2>
 
         <div className="mt-8 md:mt-12 lg:mt-20">

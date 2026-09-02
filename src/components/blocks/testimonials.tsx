@@ -16,14 +16,14 @@ import { cn } from "@/lib/utils";
 
 const items = [
   {
-    quote: "We're misusing Mainline as a CRM and it still works!",
+    quote: "We're using Snitch for all our design reviews and bug reports!",
     author: "Amy Chase",
-    role: "PM",
+    role: "Product Designer",
     company: "Mercury Finance",
     image: "/testimonials/amy-chase.webp",
   },
   {
-    quote: "I was able to replace 80% of my team with Mainline bots.",
+    quote: "I replaced our bloated screenshot tools with Snitch. It's crazy fast.",
     author: "Jonas Kotara",
     role: "Lead Engineer",
     company: "Mercury Finance",
@@ -44,14 +44,14 @@ const items = [
     image: "/testimonials/kundo-marta.webp",
   },
   {
-    quote: "We're misusing Mainline as a CRM and it still works!",
+    quote: "We're using Snitch for all our design reviews and bug reports!",
     author: "Amy Chase",
-    role: "PM",
+    role: "Product Designer",
     company: "Mercury Finance",
     image: "/testimonials/amy-chase.webp",
   },
   {
-    quote: "I was able to replace 80% of my team with Mainline bots.",
+    quote: "I replaced our bloated screenshot tools with Snitch. It's crazy fast.",
     author: "Jonas Kotara",
     role: "Lead Engineer",
     company: "Mercury Finance",
@@ -89,7 +89,7 @@ export const Testimonials = ({
               Trusted by product builders
             </h2>
             <p className="text-muted-foreground max-w-md leading-snug">
-              Mainline is built on the habits that make the best product teams
+              Snitch is built on the habits that make the best creators
               successful: staying focused, moving quickly, and always aiming for
               high-quality work.
             </p>

@@ -1,4 +1,4 @@
-# Your Project PRE licensing setup
+# Snitch PRE licensing setup
 
 PRE uses Supabase project `your-pre-supabase-project-ref`:
 

@@ -1,5 +1,5 @@
 /**
- * Your Project - Renderer Process
+ * Snitch - Renderer Process
  * Canvas drawing, tools, and UI interaction
  */
 
@@ -155,7 +155,7 @@ const state = {
   studioTitlebar: true,
   studioBorder: true,
   windowFrameTheme: 'macos',
-  studioBrowserUrl: 'example.com',
+  studioBrowserUrl: 'snitch.dev',
   studioPitch: 0,
   studioYaw: 0,
   studioRoll: 0,
@@ -3392,7 +3392,7 @@ function normalizeBrowserUrlLabel(value) {
     .replace(/^https?:\/\//i, '')
     .replace(/^www\./i, '')
     .replace(/\/.*$/, '');
-  return clean || 'example.com';
+  return clean || 'snitch.dev';
 }
 
 function roundRect(ctx, x, y, width, height, radius) {

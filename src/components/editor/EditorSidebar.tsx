@@ -126,7 +126,7 @@ function SidebarBrand() {
       style={isCollapsed ? { paddingTop: 12 } : { paddingLeft: 20, paddingRight: 20 }}
     >
       <a className="group flex min-w-0 items-center gap-2.5 outline-none" href="#">
-        <img src="/inki.png" alt="Icodraw" className={cn('shrink-0 object-contain object-left drop-shadow-sm transition-transform duration-[260ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105', isCollapsed ? 'size-[22px]' : 'size-[26px]')} />
+        <img src="/inki.png" alt="Snitch" className={cn('shrink-0 object-contain object-left drop-shadow-sm transition-transform duration-[260ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105', isCollapsed ? 'size-[22px]' : 'size-[26px]')} />
       </a>
 
       <motion.div

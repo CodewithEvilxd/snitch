@@ -1,4 +1,4 @@
-# Your Project PRO licensing setup
+# Snitch PRO licensing setup
 
 PRO uses Supabase project `your-pro-supabase-project-ref` and your Stripe live-mode account:
 

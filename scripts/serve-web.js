@@ -52,13 +52,13 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(`Your Project web preview running at http://localhost:${port}`);
+  console.log(`Snitch web preview running at http://localhost:${port}`);
 });
 
 server.on('error', (error) => {
   if (error.code === 'EADDRINUSE') {
     console.log(`Port ${port} is already in use.`);
-    console.log(`If Your Project is already open, use http://localhost:${port}`);
+    console.log(`If Snitch is already open, use http://localhost:${port}`);
     console.log(`To use another port, run: $env:PORT=3001; npm run web`);
     process.exit(0);
   }

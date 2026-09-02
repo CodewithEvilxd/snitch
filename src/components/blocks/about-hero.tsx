@@ -29,23 +29,18 @@ export function AboutHero() {
           </h1>
 
           <p className="text-muted-foreground mt-5 text-2xl md:text-3xl lg:text-4xl">
-            Mainline is bringing modern software to life with AI magic.
+            Snitch is bringing effortless screen capture & annotation to life.
           </p>
 
           <p className="text-muted-foreground mt-8 hidden max-w-lg space-y-6 text-lg text-balance md:block lg:mt-12">
-            At Mainline, we are dedicated to transforming the way teams plan,
-            execute, and deliver projects. Our mission is to provide our
-            customers with an unbeatable edge over delays, inefficiencies, and
-            disorganisation through actionable insights and seamless
-            collaboration. We’ll stop at nothing to give you the tools you need
-            to get every project across the finish line.
+            At Snitch, we are dedicated to transforming the way you capture,
+            annotate, and share visual ideas. Our mission is to provide you
+            with an unbeatable, zero-friction tool for instant captures and
+            clean annotations with absolute focus.
             <br />
             <br />
-            We’re customer-obsessed — investing the time to understand every
-            aspect of your workflow so that we can help you operate better than
-            ever before. We’re all in this together because your success is our
-            success. In our history as a company, we’ve never lost a customer,
-            because when your projects succeed, so do we.
+            Fast captures. Clean marks. Zero friction. Built for creators,
+            designers, and engineers who demand precision.
           </p>
         </div>
 

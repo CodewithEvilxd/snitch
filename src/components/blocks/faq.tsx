@@ -7,19 +7,19 @@ import {
 
 const faqs = [
   {
-    question: "Is Your Project free?",
-    answer: "Your Project has a 30-day trial. After the trial, buy a license and activate it with your checkout email.",
+    question: "Is Snitch free?",
+    answer: "Snitch has a 30-day trial. After the trial, buy a license and activate it with your checkout email.",
   },
   {
     question: "How does the license work?",
     answer: "Each license allows 2 active device activations. Active licenses are revalidated online periodically, while captures remain local.",
   },
   {
-    question: "What platforms does Your Project support?",
+    question: "What platforms does Snitch support?",
     answer: "macOS (Intel & Apple Silicon), Windows (portable), and Linux (AppImage). Same feature set on all three.",
   },
   {
-    question: "Does Your Project upload my data?",
+    question: "Does Snitch upload my data?",
     answer: "No. Everything runs locally. No analytics, no telemetry, no accounts. Your screen stays yours.",
   },
   {
@@ -37,7 +37,7 @@ export const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Everything you need to know about Your Project and billing.
+            Everything you need to know about Snitch and billing.
           </p>
         </div>
         

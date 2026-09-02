@@ -33,4 +33,4 @@ const outputPath = path.join(__dirname, '..', 'src', 'license-config.js');
 const output = `module.exports = ${JSON.stringify(config, null, 2)};\n`;
 
 fs.writeFileSync(outputPath, output);
-console.log(`Configured Your Project ${target.toUpperCase()} license endpoint: ${config.licenseApiBaseUrl}`);
+console.log(`Configured Snitch ${target.toUpperCase()} license endpoint: ${config.licenseApiBaseUrl}`);
