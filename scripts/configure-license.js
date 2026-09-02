@@ -1,26 +1,26 @@
 const fs = require('fs');
 const path = require('path');
 
-const target = (process.env.YOUR_PROJECT_LICENSE_TARGET || 'pre').trim().toLowerCase();
+const target = (process.env.SNITCH_LICENSE_TARGET || process.env.YOUR_PROJECT_LICENSE_TARGET || 'pre').trim().toLowerCase();
 
 const defaults = {
   pre: {
-    buyLicenseUrl: 'https://example.com/your-test-checkout-link',
+    buyLicenseUrl: 'https://github.com/codewithevilxd/snitch',
     licenseApiBaseUrl: 'https://your-pre-supabase-project-ref.supabase.co/functions/v1',
     supabasePublishableKey: 'YOUR_PRE_SUPABASE_PUBLISHABLE_KEY',
   },
   pro: {
-    buyLicenseUrl: 'https://example.com/your-live-checkout-link',
+    buyLicenseUrl: 'https://github.com/codewithevilxd/snitch',
     licenseApiBaseUrl: 'https://your-pro-supabase-project-ref.supabase.co/functions/v1',
     supabasePublishableKey: 'YOUR_PRO_SUPABASE_PUBLISHABLE_KEY',
   },
 };
 
-const envPrefix = `YOUR_PROJECT_${target.toUpperCase()}`;
+const targetUpper = target.toUpperCase();
 const config = {
-  buyLicenseUrl: process.env[`${envPrefix}_BUY_LICENSE_URL`] || defaults[target]?.buyLicenseUrl || '',
-  licenseApiBaseUrl: process.env[`${envPrefix}_LICENSE_API_BASE_URL`] || defaults[target]?.licenseApiBaseUrl || '',
-  supabasePublishableKey: process.env[`${envPrefix}_SUPABASE_PUBLISHABLE_KEY`] || defaults[target]?.supabasePublishableKey || '',
+  buyLicenseUrl: process.env[`SNITCH_${targetUpper}_BUY_LICENSE_URL`] || process.env[`YOUR_PROJECT_${targetUpper}_BUY_LICENSE_URL`] || defaults[target]?.buyLicenseUrl || '',
+  licenseApiBaseUrl: process.env[`SNITCH_${targetUpper}_LICENSE_API_BASE_URL`] || process.env[`YOUR_PROJECT_${targetUpper}_LICENSE_API_BASE_URL`] || defaults[target]?.licenseApiBaseUrl || '',
+  supabasePublishableKey: process.env[`SNITCH_${targetUpper}_SUPABASE_PUBLISHABLE_KEY`] || process.env[`YOUR_PROJECT_${targetUpper}_SUPABASE_PUBLISHABLE_KEY`] || defaults[target]?.supabasePublishableKey || '',
 };
 
 for (const [key, value] of Object.entries(config)) {
