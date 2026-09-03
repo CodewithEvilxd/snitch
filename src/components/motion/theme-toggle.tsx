@@ -107,6 +107,8 @@ const CIRCLE_ORIGIN: Record<RectStart, string> = {
   "bottom-up": "50% 100%",
 };
 
+import { flushSync } from "react-dom";
+
 export function useThemeToggle({
   variant = "blinds",
   start = "bottom-up",
@@ -125,17 +127,30 @@ export function useThemeToggle({
     document.head.appendChild(el);
   }, []);
 
-  const isDark = mounted && resolvedTheme === "dark";
+  const isDark =
+    mounted &&
+    (resolvedTheme === "dark" ||
+      (typeof document !== "undefined" &&
+        document.documentElement.classList.contains("dark")));
 
   const toggle = () => {
     const next = isDark ? "light" : "dark";
-    if (reduce || !("startViewTransition" in document)) {
+
+    const updateTheme = () => {
       setTheme(next);
-      if (next === "dark") {
-        document.body.classList.add("theme-dark");
-      } else {
-        document.body.classList.remove("theme-dark");
+      if (typeof document !== "undefined") {
+        if (next === "dark") {
+          document.documentElement.classList.add("dark");
+          document.body.classList.add("theme-dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.body.classList.remove("theme-dark");
+        }
       }
+    };
+
+    if (reduce || !("startViewTransition" in document)) {
+      updateTheme();
       return;
     }
 
@@ -151,22 +166,24 @@ export function useThemeToggle({
       root.dataset.beuiVt = variant;
     }
 
-    const vt = (
-      document as Document & {
-        startViewTransition(cb: () => void): { finished: Promise<void> };
-      }
-    ).startViewTransition(() => {
-      setTheme(next);
-      if (next === "dark") {
-        document.body.classList.add("theme-dark");
-      } else {
-        document.body.classList.remove("theme-dark");
-      }
-    });
+    try {
+      const vt = (
+        document as Document & {
+          startViewTransition(cb: () => void): { finished: Promise<void> };
+        }
+      ).startViewTransition(() => {
+        flushSync(() => {
+          updateTheme();
+        });
+      });
 
-    vt.finished.finally(() => {
+      vt.finished.finally(() => {
+        delete root.dataset.beuiVt;
+      });
+    } catch {
+      updateTheme();
       delete root.dataset.beuiVt;
-    });
+    }
   };
 
   return { isDark, mounted, toggle };
