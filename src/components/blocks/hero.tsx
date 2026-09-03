@@ -74,32 +74,32 @@ export const Hero = () => {
       </header>
 
       {/* ─── BESPOKE ASYMMETRIC STUDIO COCKPIT ─── */}
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto pt-36 pb-24 px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto pt-28 pb-16 px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* LEFT COLUMN: Architecture & Mode Switcher (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">
             
             {/* Engine Status Label */}
-            <div className="flex items-center gap-2 font-mono text-[11px] text-neutral-500 dark:text-neutral-400 mb-4 uppercase tracking-wider">
+            <div className="flex items-center gap-2 font-mono text-[11px] text-neutral-500 dark:text-neutral-400 mb-3 uppercase tracking-wider">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Snitch Studio // Local-First Engine</span>
             </div>
 
             {/* Editorial Asymmetric Headline */}
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.4rem] font-bold tracking-tight text-neutral-950 dark:text-white leading-[1.08] mb-4">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-[3.1rem] font-bold tracking-tight text-neutral-950 dark:text-white leading-[1.08] mb-3">
               Precision screen capture. <br />
               <span className="text-neutral-400 dark:text-neutral-500 font-serif-italic font-normal">
                 Zero telemetry.
               </span>
             </h1>
 
-            <p className="font-sans text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-8 max-w-lg">
+            <p className="font-sans text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6 max-w-md">
               Engineered for developers and designers who redact credentials, point out bugs, and copy visuals in milliseconds. Everything runs client-side in RAM.
             </p>
 
             {/* Interactive Mode Tabs */}
-            <div className="flex flex-col gap-2 w-full max-w-md mb-8">
+            <div className="flex flex-col gap-2 w-full max-w-md mb-6">
               
               <button
                 type="button"
