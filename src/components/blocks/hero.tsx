@@ -89,10 +89,10 @@ export const Hero = () => {
             </div>
 
             {/* Left-Aligned Confident Headline */}
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.06] mb-5">
-              Capture your screen <br />
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.8rem] font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.04] mb-5">
+              Capture every pixel. <br />
               <span className="font-serif-italic font-normal text-neutral-400 dark:text-neutral-500">
-                with precision.
+                Annotate with ease.
               </span>
             </h1>
 
@@ -107,8 +107,13 @@ export const Hero = () => {
                 href="/capture.html"
                 className="inline-flex items-center gap-3 h-12 px-6 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-white dark:hover:bg-neutral-100 dark:text-neutral-950 font-heading text-sm font-semibold shadow-xl shadow-neutral-900/10 dark:shadow-white/5 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
-                <span>Open Web Studio</span>
-                <span className="font-mono text-xs opacity-60">➔</span>
+                <span className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+                  Open Web Studio
+                </span>
+                <kbd className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-white/20 dark:bg-black/10">
+                  ↵
+                </kbd>
               </a>
 
               <a
@@ -145,8 +150,20 @@ export const Hero = () => {
             {/* Subtle Ambient Backlight Glow */}
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-neutral-200/50 via-neutral-100/20 to-neutral-200/50 dark:from-neutral-800/30 dark:via-neutral-900/10 dark:to-neutral-800/30 blur-2xl pointer-events-none" />
 
+            {/* Floating Top-Right Micro-Badge */}
+            <div className="absolute -top-3 -right-2 z-20 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900/90 dark:bg-white/95 text-white dark:text-neutral-950 font-mono text-xs shadow-xl border border-white/10 dark:border-neutral-200 backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Smart Crop · 1920×1080</span>
+            </div>
+
+            {/* Floating Bottom-Left Micro-Badge */}
+            <div className="absolute -bottom-3 -left-2 z-20 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900/90 dark:bg-white/95 text-white dark:text-neutral-950 font-mono text-xs shadow-xl border border-white/10 dark:border-neutral-200 backdrop-blur-md">
+              <span className="text-red-400 font-bold">⬛</span>
+              <span>Instant Redaction Active</span>
+            </div>
+
             {/* macOS Studio Window Frame */}
-            <div className="relative rounded-2xl p-1.5 sm:p-2 bg-gradient-to-b from-neutral-200/80 to-neutral-300/40 dark:from-neutral-800/60 dark:to-neutral-900/40 border border-neutral-300/80 dark:border-neutral-800 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.12)] dark:shadow-[0_40px_110px_-30px_rgba(0,0,0,0.8)] backdrop-blur-xl">
+            <div className="relative rounded-2xl p-1.5 sm:p-2 bg-gradient-to-b from-neutral-200/80 to-neutral-300/40 dark:from-neutral-800/60 dark:to-neutral-900/40 border border-neutral-300/80 dark:border-neutral-800 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.12)] dark:shadow-[0_40px_110px_-30px_rgba(0,0,0,0.8)] backdrop-blur-xl hover:shadow-[0_40px_120px_-20px_rgba(0,0,0,0.18)] dark:hover:shadow-[0_50px_140px_-30px_rgba(0,0,0,0.9)] transition-all duration-500">
               
               {/* macOS Title Bar */}
               <div className="flex items-center justify-between px-3.5 py-2.5 bg-neutral-900/95 rounded-t-xl border-b border-neutral-800 text-xs font-mono">
