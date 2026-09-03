@@ -343,9 +343,11 @@ body.theme-dark .toolbar-action-danger:hover:not(:disabled) {
 .toolbar-logo {
   display: block;
   width: auto !important;
-  height: 20px !important;
+  height: 28px !important;
+  max-height: 28px !important;
   object-fit: contain;
   margin: 0 !important;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .theme-toggle-group {
@@ -4112,7 +4114,7 @@ body.theme-dark .right-sidebar.expanded {
   }
 
   .toolbar-logo {
-    height: 17px !important;
+    height: 24px !important;
   }
 
   .toolbar-group.capture-modes,

@@ -90,9 +90,10 @@
 .landing-island-logo {
   display: block;
   width: auto !important;
-  height: 18px !important;
+  height: 28px !important;
   object-fit: contain;
   margin: 0 !important;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 /* ── Toolbar buttons ── */

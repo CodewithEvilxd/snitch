@@ -126,7 +126,7 @@ function SidebarBrand() {
       style={isCollapsed ? { paddingTop: 12 } : { paddingLeft: 20, paddingRight: 20 }}
     >
       <a className="group flex min-w-0 items-center gap-2.5 outline-none" href="#">
-        <img src="/inki.png" alt="Snitch" className={cn('shrink-0 object-contain object-left drop-shadow-sm transition-transform duration-[260ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105', isCollapsed ? 'size-[22px]' : 'size-[26px]')} />
+        <img src="/inki.png" alt="Snitch" className={cn('shrink-0 object-contain object-left drop-shadow-sm transition-transform duration-[260ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105', isCollapsed ? 'h-[24px] w-auto' : 'h-[32px] w-auto max-w-[48px]')} />
       </a>
 
       <motion.div
@@ -542,7 +542,7 @@ function EditorSidebarFooter() {
       >
         {!isCollapsed && (
           <div className="flex min-w-0 flex-1 items-center gap-2.5 animate-in fade-in slide-in-from-left-1 duration-[360ms]">
-            <img src="/inki.png" alt="Snitch" className="size-[24px] shrink-0 object-contain object-left drop-shadow-sm" />
+            <img src="/inki.png" alt="Snitch" className="h-[26px] w-auto max-w-[38px] shrink-0 object-contain object-left drop-shadow-sm" />
             <span className="min-w-0 flex-1">
               <span className="block truncate text-[13px] font-semibold leading-5 text-neutral-900 dark:text-white">Snitch</span>
               <span className="block truncate text-[11px] font-normal leading-4 text-neutral-400 dark:text-white/60">Free</span>
