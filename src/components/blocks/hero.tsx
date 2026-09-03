@@ -16,8 +16,8 @@ export const Hero = () => {
       {/* Top Left Brand Logo */}
       <a href="/" className="landing-top-logo" aria-label="Snitch home">
         <img src="/inki.png" alt="Snitch" className="h-7 w-auto object-contain" />
-        <span className="font-heading font-semibold text-lg tracking-tight text-neutral-900 dark:text-white">
-          Snitch
+        <span className="font-ndot font-normal text-xl tracking-wider text-neutral-900 dark:text-white">
+          SNITCH
         </span>
       </a>
 
@@ -26,7 +26,7 @@ export const Hero = () => {
         <ToggleTheme />
         <a
           href="https://github.com/codewithevilxd/snitch"
-          className="landing-social-pill font-mono"
+          className="landing-social-pill font-ndot tracking-wider text-xs"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -34,7 +34,7 @@ export const Hero = () => {
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
           </svg>
-          @codewithevilxd
+          @CODEWITHEVILXD
         </a>
       </div>
 
@@ -82,16 +82,16 @@ export const Hero = () => {
           {/* LEFT COLUMN: Clean, Confident, Non-Centered Typography (5.5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-start text-left lg:pt-3">
             
-            {/* Left-Aligned Confident Headline */}
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.8rem] font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.04] mb-4">
+            {/* Left-Aligned Nothing Phone Dot Matrix Headline */}
+            <h1 className="font-ndot text-3xl sm:text-4xl lg:text-[3.2rem] font-normal tracking-wide text-neutral-900 dark:text-white leading-[1.12] mb-5 uppercase">
               Capture every pixel. <br />
-              <span className="font-serif-italic font-normal text-neutral-400 dark:text-neutral-500">
+              <span className="text-neutral-400 dark:text-neutral-500">
                 Annotate with ease.
               </span>
             </h1>
 
-            {/* Subtext */}
-            <p className="font-sans text-base sm:text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed mb-6 max-w-md">
+            {/* Subtext in Nothing NType82 Sans */}
+            <p className="font-ntype text-base sm:text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed mb-6 max-w-md">
               Instant captures, clean vector annotations, and zero-latency local redaction. 100% client-side, open-source, and private forever.
             </p>
 
@@ -99,13 +99,13 @@ export const Hero = () => {
             <div className="flex flex-wrap items-center gap-4 mb-6">
               <a
                 href="/capture.html"
-                className="inline-flex items-center gap-3 h-12 px-6 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-white dark:hover:bg-neutral-100 dark:text-neutral-950 font-heading text-sm font-semibold shadow-xl shadow-neutral-900/10 dark:shadow-white/5 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                className="inline-flex items-center gap-3 h-12 px-6 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-white dark:hover:bg-neutral-100 dark:text-neutral-950 font-ndot text-xs tracking-wider uppercase shadow-xl shadow-neutral-900/10 dark:shadow-white/5 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 <span className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
                   Open Web Studio
                 </span>
-                <kbd className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-white/20 dark:bg-black/10">
+                <kbd className="font-ndot text-[11px] px-1.5 py-0.5 rounded bg-white/20 dark:bg-black/10">
                   ↵
                 </kbd>
               </a>
@@ -114,7 +114,7 @@ export const Hero = () => {
                 href="https://github.com/codewithevilxd/snitch"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors py-2 px-1"
+                className="inline-flex items-center gap-2 text-xs font-ndot tracking-wider uppercase text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors py-2 px-1"
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
@@ -124,8 +124,8 @@ export const Hero = () => {
               </a>
             </div>
 
-            {/* Quiet Luxury Trust Points */}
-            <div className="flex flex-col gap-2 pt-4 border-t border-neutral-200/80 dark:border-neutral-800/80 font-mono text-xs text-neutral-400 dark:text-neutral-500 w-full max-w-md">
+            {/* Quiet Luxury Trust Points in Nothing Dot Font */}
+            <div className="flex flex-col gap-2 pt-4 border-t border-neutral-200/80 dark:border-neutral-800/80 font-ndot text-xs text-neutral-400 dark:text-neutral-500 w-full max-w-md tracking-wider">
               <div className="flex items-center gap-2">
                 <span className="text-emerald-500 font-bold">✓</span>
                 <span>100% Client-Side · Zero Telemetry & Cloud Storage</span>
@@ -148,7 +148,7 @@ export const Hero = () => {
             <div className="relative rounded-2xl p-1.5 sm:p-2 bg-gradient-to-b from-neutral-200/80 to-neutral-300/40 dark:from-neutral-800/60 dark:to-neutral-900/40 border border-neutral-300/80 dark:border-neutral-800 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.12)] dark:shadow-[0_40px_110px_-30px_rgba(0,0,0,0.8)] backdrop-blur-xl hover:shadow-[0_40px_120px_-20px_rgba(0,0,0,0.18)] dark:hover:shadow-[0_50px_140px_-30px_rgba(0,0,0,0.9)] transition-all duration-500">
               
               {/* macOS Title Bar */}
-              <div className="flex items-center justify-between px-3.5 py-2.5 bg-neutral-900/95 rounded-t-xl border-b border-neutral-800 text-xs font-mono">
+              <div className="flex items-center justify-between px-3.5 py-2.5 bg-neutral-900/95 rounded-t-xl border-b border-neutral-800 text-xs font-ndot tracking-wider">
                 <div className="flex items-center gap-2">
                   <span className="h-3 w-3 rounded-full bg-[#ff5f56]" />
                   <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
@@ -156,12 +156,12 @@ export const Hero = () => {
                 </div>
                 <div className="flex items-center gap-2 text-neutral-400">
                   <img src="/inki.png" alt="Snitch" className="h-4 w-auto object-contain" />
-                  <span className="text-neutral-200 font-medium">Snitch Studio</span>
-                  <span className="text-neutral-500">· Canvas Active</span>
+                  <span className="text-neutral-200 font-normal">SNITCH STUDIO</span>
+                  <span className="text-neutral-500">· CANVAS ACTIVE</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+                <div className="flex items-center gap-1.5 text-[11px] font-ndot text-emerald-400">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  <span>Local Engine</span>
+                  <span>LOCAL ENGINE</span>
                 </div>
               </div>
 

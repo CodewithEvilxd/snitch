@@ -106,8 +106,8 @@ export const Features = () => {
       <div className="landing-dot-grid" aria-hidden="true" />
       <div className="landing-feature-shell">
         <div className="landing-feature-intro fade-in-view">
-          <h2 className="landing-feature-heading">Capture. Design. Deliver.</h2>
-          <p className="landing-feature-subhead">Everything you need to capture, annotate, and share in seconds.</p>
+          <h2 className="landing-feature-heading font-ndot uppercase tracking-wide">Capture. Design. Deliver.</h2>
+          <p className="landing-feature-subhead font-ntype">Everything you need to capture, annotate, and share in seconds.</p>
           <div className="landing-feature-grid">
             {items.map((item, i) => {
               const Illust = item.Illustration;
@@ -119,8 +119,8 @@ export const Features = () => {
                 >
                   <Illust />
                   <div className="feat-card-body">
-                    <p>
-                      <strong className="feat-card-title">{item.title}</strong>{" "}
+                    <p className="font-ntype">
+                      <strong className="feat-card-title font-ndot uppercase tracking-wide">{item.title}</strong>{" "}
                       {item.description}
                     </p>
                   </div>
