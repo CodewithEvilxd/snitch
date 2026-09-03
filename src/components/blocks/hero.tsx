@@ -13,22 +13,23 @@ export const Hero = () => {
       />
       <div className="landing-dot-grid opacity-35 dark:opacity-15" aria-hidden="true" />
 
-      {/* Top Left Brand Logo - Mascot perched above and realistically biting the text */}
-      <a href="/" className="landing-top-logo group" aria-label="Snitch home">
-        <div className="relative flex flex-col items-center select-none">
+      {/* Top Left Brand Logo - Mascot perched above and biting the text (Completely static) */}
+      <a href="/" className="landing-top-logo select-none" aria-label="Snitch home">
+        <div className="relative flex flex-col items-center select-none pointer-events-none">
           <img
             src="/inki-biting-clean.png"
             alt="Snitch Mascot biting wordmark"
-            className="landing-top-cat"
+            className="landing-top-cat pointer-events-none select-none"
+            draggable={false}
           />
-          <div className="relative flex items-center justify-center">
-            <span className="landing-top-wordmark font-ndot font-normal text-[1.18rem] tracking-[0.18em] text-neutral-900 dark:text-white">
+          <div className="relative flex items-center justify-center select-none">
+            <span className="landing-top-wordmark font-ndot font-normal text-[1.18rem] tracking-[0.18em] text-neutral-900 dark:text-white select-none">
               SNITCH
             </span>
             {/* Chewed dot-matrix crumbs */}
-            <span className="landing-crumb landing-crumb-1 text-neutral-900 dark:text-white" aria-hidden="true" />
-            <span className="landing-crumb landing-crumb-2 text-neutral-900 dark:text-white" aria-hidden="true" />
-            <span className="landing-crumb landing-crumb-3 text-neutral-900 dark:text-white" aria-hidden="true" />
+            <span className="landing-crumb landing-crumb-1 text-neutral-900 dark:text-white select-none" aria-hidden="true" />
+            <span className="landing-crumb landing-crumb-2 text-neutral-900 dark:text-white select-none" aria-hidden="true" />
+            <span className="landing-crumb landing-crumb-3 text-neutral-900 dark:text-white select-none" aria-hidden="true" />
           </div>
         </div>
       </a>
@@ -167,7 +168,7 @@ export const Hero = () => {
                   <span className="h-3 w-3 rounded-full bg-[#27c93f]" />
                 </div>
                 <div className="flex items-center gap-2 text-neutral-400">
-                  <img src="/inki.png" alt="Snitch" className="h-4 w-auto object-contain" />
+                  <img src="/inki.png" alt="Snitch" className="h-4 w-auto object-contain select-none pointer-events-none" draggable={false} />
                   <span className="text-neutral-200 font-normal">SNITCH STUDIO</span>
                   <span className="text-neutral-500">· CANVAS ACTIVE</span>
                 </div>
@@ -178,11 +179,12 @@ export const Hero = () => {
               </div>
 
               {/* Canvas Image Surface */}
-              <div className="relative overflow-hidden rounded-b-xl bg-neutral-950">
+              <div className="relative overflow-hidden rounded-b-xl bg-neutral-950 select-none">
                 <img
                   src="/editor-preview.png"
                   alt="Snitch Studio Screen Capture Canvas"
-                  className="w-full h-auto object-cover block"
+                  className="w-full h-auto object-cover block select-none pointer-events-none"
+                  draggable={false}
                 />
               </div>
 
