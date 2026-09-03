@@ -9,8 +9,8 @@ import './globals.css';
 
 export default function Landing() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <div className="landing-page min-h-screen font-sans antialiased selection:bg-neutral-900/10 dark:selection:bg-white/10 bg-white dark:bg-[#0c0d12] text-neutral-900 dark:text-neutral-100 transition-colors duration-200">
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <div className="landing-page min-h-screen font-sans antialiased selection:bg-neutral-900/10 dark:selection:bg-white/10 bg-[#fafafa] dark:bg-[#090a0f] text-neutral-900 dark:text-neutral-100 transition-colors duration-300">
         <Hero />
         <Features />
         <ShortcutsMatrix />
