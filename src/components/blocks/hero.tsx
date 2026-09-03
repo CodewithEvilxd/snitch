@@ -1,6 +1,5 @@
 import { Monitor, ScanLine, SquareDashedMousePointer } from "lucide-react";
-import { StudioPreview } from "./studio-preview";
-import { ToggleTheme } from "../ui/toggle-theme";
+import { ScrollStroke } from "./scroll-stroke";
 
 import "../../react/toolbar-exact.css";
 
@@ -24,16 +23,15 @@ export const Hero = () => {
       <div className="landing-dot-grid" aria-hidden="true" />
 
       <a href="/" className="landing-top-logo" aria-label="Snitch home">
-        <img src="/inki.png" alt="Snitch" />
-        <span className="font-heading font-semibold tracking-tight">Snitch</span>
+        <img src="/inki.png" alt="" />
+        <span>Snitch</span>
       </a>
 
-      {/* ── Top-right social & theme pills ── */}
+      {/* ── Top-right social pills ── */}
       <div className="landing-top-social" aria-label="Creator links">
-        <ToggleTheme />
         <a
-          href="https://github.com/codewithevilxd/snitch"
-          className="landing-social-pill font-mono"
+          href="https://github.com/codewithevilxd"
+          className="landing-social-pill"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -57,22 +55,22 @@ export const Hero = () => {
         </a>
 
         <div className="landing-island-group capture-modes">
-          <a className="landing-island-btn" href="/capture.html" aria-label="Capture region" title="Capture Region">
+          <a className="landing-island-btn" href="/capture.html" aria-label="Capture region">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M4 8V4h4"></path><path d="M4 16v4h4"></path><path d="M16 4h4v4"></path><path d="M16 20h4v-4"></path><rect x="8" y="8" width="8" height="8" rx="1" strokeDasharray="2 2"></rect>
             </svg>
           </a>
-          <a className="landing-island-btn" href="/capture.html" aria-label="Capture window" title="Capture Window">
+          <a className="landing-island-btn" href="/capture.html" aria-label="Capture window">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 8h18"></path><circle cx="5.5" cy="6" r=".5" fill="currentColor"></circle><circle cx="7.5" cy="6" r=".5" fill="currentColor"></circle><circle cx="9.5" cy="6" r=".5" fill="currentColor"></circle>
             </svg>
           </a>
-          <a className="landing-island-btn" href="/capture.html" aria-label="Capture fullscreen" title="Capture Fullscreen">
+          <a className="landing-island-btn" href="/capture.html" aria-label="Capture fullscreen">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M6 21h12"></path><path d="M12 17v4"></path>
             </svg>
           </a>
-          <a className="landing-island-btn" href="/capture.html" aria-label="Upload file" title="Upload Image">
+          <a className="landing-island-btn" href="/capture.html" aria-label="Upload file">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="17 8 12 3 7 8"></polyline>
@@ -84,28 +82,26 @@ export const Hero = () => {
 
       <div className="landing-hero-layout">
         <div className="landing-hero-copy">
-          <span className="landing-eyebrow font-mono">[0.1.0] · LOCAL-FIRST · ZERO FRICTION</span>
+          <span className="landing-eyebrow">Screen capture, cleaned up</span>
           <h1>
             Snitch lets you capture screen <br className="landing-heading-break" />
-            with <span className="font-serif-italic">elegance.</span>
+            with <span>elegance.</span>
           </h1>
-          <p className="font-sans">
-            Fast captures. Clean marks. Instant redaction. <br />
+          <p>
+            Fast captures. Clean marks. Zero friction. <br />
             Catch your screen red-handed with absolute focus.
           </p>
           <div className="landing-hero-actions">
-            <a className="landing-primary-cta font-heading" href="/capture.html">
-              Open Studio
+            <a className="landing-primary-cta" href="/capture.html">
+              Get started
             </a>
-            <a className="landing-secondary-cta font-heading" href="#features">
+            <a className="landing-secondary-cta" href="#features">
               See in action
             </a>
           </div>
         </div>
 
-        <div className="w-full flex items-center justify-center">
-          <StudioPreview />
-        </div>
+        <ScrollStroke />
       </div>
     </section>
   );
