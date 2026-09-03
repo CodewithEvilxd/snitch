@@ -13,10 +13,10 @@ export const Hero = () => {
       />
       <div className="landing-dot-grid opacity-35 dark:opacity-15" aria-hidden="true" />
 
-      {/* Top Left Brand Logo */}
-      <a href="/" className="landing-top-logo" aria-label="Snitch home">
-        <img src="/inki.png" alt="Snitch" className="h-7 w-auto object-contain" />
-        <span className="font-ndot font-normal text-xl tracking-wider text-neutral-900 dark:text-white">
+      {/* Top Left Brand Logo - Mascot perched above and biting the text */}
+      <a href="/" className="landing-top-logo group" aria-label="Snitch home">
+        <img src="/inki.png" alt="Snitch Mascot" className="landing-top-cat" />
+        <span className="font-ndot font-normal text-[1.12rem] tracking-[0.16em] text-neutral-900 dark:text-white">
           SNITCH
         </span>
       </a>
