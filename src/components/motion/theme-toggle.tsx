@@ -2,10 +2,8 @@
 
 import React, { useEffect, useState, type ComponentPropsWithoutRef } from "react";
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 import { useReducedMotion } from "framer-motion";
 import { ActionSwapIcon } from "./action-swap";
-import { EASE_OUT_CSS } from "../../lib/ease";
 import { cn } from "../../lib/utils";
 
 export type ThemeVariant = "rectangle" | "circle" | "circle-blur" | "blinds";
@@ -19,9 +17,7 @@ export type RectStart =
 
 export interface ThemeToggleProps
   extends Omit<ComponentPropsWithoutRef<"button">, "children" | "onClick"> {
-  /** Animation variant. Default: "blinds". */
   variant?: ThemeVariant;
-  /** Origin direction for the reveal. Default: "bottom-up". */
   start?: RectStart;
   iconClassName?: string;
 }
@@ -59,12 +55,21 @@ html[data-beui-vt="blinds"]::view-transition-new(root) {
   -webkit-mask-size: 72px 100%;
   mask-repeat: repeat;
   -webkit-mask-repeat: repeat;
-  animation: beui-blinds-reveal 700ms ${EASE_OUT_CSS};
+  animation: beui-blinds-reveal 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes beui-blinds-reveal {
+  from {
+    --beui-vt-slat: -20px;
+  }
+  to {
+    --beui-vt-slat: 72px;
+  }
 }
 
 @keyframes beui-rect-reveal {
-  from { clip-path: var(--beui-vt-from, inset(100% 0 0 0)); }
-  to { clip-path: inset(0 0 0 0); }
+  from { clip-path: polygon(var(--beui-vt-from)); }
+  to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
 }
 
 @keyframes beui-circle-reveal {
@@ -75,27 +80,22 @@ html[data-beui-vt="blinds"]::view-transition-new(root) {
 @keyframes beui-circle-blur-reveal {
   from {
     clip-path: circle(0% at var(--beui-vt-origin, 50% 100%));
-    filter: blur(8px);
+    filter: blur(16px);
   }
   to {
     clip-path: circle(150% at var(--beui-vt-origin, 50% 100%));
     filter: blur(0px);
   }
 }
-
-@keyframes beui-blinds-reveal {
-  from { --beui-vt-slat: -20px; }
-  to { --beui-vt-slat: 72px; }
-}
 `;
 
 const RECT_FROM: Record<RectStart, string> = {
-  "top-left": "inset(0 100% 100% 0)",
-  "top-right": "inset(0 0 100% 100%)",
-  "bottom-left": "inset(100% 100% 0 0)",
-  "bottom-right": "inset(100% 0 0 100%)",
-  center: "inset(50% 50% 50% 50%)",
-  "bottom-up": "inset(100% 0 0 0)",
+  "top-left": "0 0, 0 0, 0 0, 0 0",
+  "top-right": "100% 0, 100% 0, 100% 0, 100% 0",
+  "bottom-left": "0 100%, 0 100%, 0 100%, 0 100%",
+  "bottom-right": "100% 100%, 100% 100%, 100% 100%, 100% 100%",
+  center: "50% 50%, 50% 50%, 50% 50%, 50% 50%",
+  "bottom-up": "0 100%, 100% 100%, 100% 100%, 0 100%",
 };
 
 const CIRCLE_ORIGIN: Record<RectStart, string> = {
@@ -107,50 +107,63 @@ const CIRCLE_ORIGIN: Record<RectStart, string> = {
   "bottom-up": "50% 100%",
 };
 
-import { flushSync } from "react-dom";
-
 export function useThemeToggle({
   variant = "blinds",
   start = "bottom-up",
 }: { variant?: ThemeVariant; start?: RectStart } = {}) {
-  const { setTheme, resolvedTheme } = useTheme();
   const reduce = useReducedMotion() ?? false;
   const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    if (document.getElementById(VT_STYLE_ID)) return;
-    const el = document.createElement("style");
-    el.id = VT_STYLE_ID;
-    el.textContent = VT_CSS;
-    document.head.appendChild(el);
+    // Inject beUI VT styles
+    if (!document.getElementById(VT_STYLE_ID)) {
+      const el = document.createElement("style");
+      el.id = VT_STYLE_ID;
+      el.textContent = VT_CSS;
+      document.head.appendChild(el);
+    }
+
+    // Determine initial theme
+    const saved = localStorage.getItem("theme");
+    const isDarkInitial =
+      saved === "dark" ||
+      document.documentElement.classList.contains("dark") ||
+      (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    if (isDarkInitial) {
+      document.documentElement.classList.add("dark");
+      document.body.classList.add("theme-dark");
+      setTheme("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.body.classList.remove("theme-dark");
+      setTheme("light");
+    }
+    setMounted(true);
   }, []);
 
-  const isDark =
-    mounted &&
-    (resolvedTheme === "dark" ||
-      (typeof document !== "undefined" &&
-        document.documentElement.classList.contains("dark")));
+  const isDark = mounted ? theme === "dark" : false;
 
   const toggle = () => {
-    const next = isDark ? "light" : "dark";
+    const nextTheme = theme === "dark" ? "light" : "dark";
 
-    const updateTheme = () => {
-      setTheme(next);
-      if (typeof document !== "undefined") {
-        if (next === "dark") {
-          document.documentElement.classList.add("dark");
-          document.body.classList.add("theme-dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-          document.body.classList.remove("theme-dark");
-        }
+    const applyTheme = () => {
+      const root = document.documentElement;
+      if (nextTheme === "dark") {
+        root.classList.add("dark");
+        document.body.classList.add("theme-dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        root.classList.remove("dark");
+        document.body.classList.remove("theme-dark");
+        localStorage.setItem("theme", "light");
       }
+      setTheme(nextTheme);
     };
 
     if (reduce || !("startViewTransition" in document)) {
-      updateTheme();
+      applyTheme();
       return;
     }
 
@@ -159,7 +172,6 @@ export function useThemeToggle({
       root.style.setProperty("--beui-vt-from", RECT_FROM[start]);
       root.dataset.beuiVt = "rect";
     } else if (variant === "blinds") {
-      // Slats sweep the whole viewport; there is no origin point to set.
       root.dataset.beuiVt = "blinds";
     } else {
       root.style.setProperty("--beui-vt-origin", CIRCLE_ORIGIN[start]);
@@ -172,21 +184,19 @@ export function useThemeToggle({
           startViewTransition(cb: () => void): { finished: Promise<void> };
         }
       ).startViewTransition(() => {
-        flushSync(() => {
-          updateTheme();
-        });
+        applyTheme();
       });
 
       vt.finished.finally(() => {
         delete root.dataset.beuiVt;
       });
     } catch {
-      updateTheme();
+      applyTheme();
       delete root.dataset.beuiVt;
     }
   };
 
-  return { isDark, mounted, toggle };
+  return { isDark, mounted, toggle, theme };
 }
 
 export function ThemeToggle({
@@ -200,11 +210,13 @@ export function ThemeToggle({
 
   return (
     <button
+      id="theme-toggle-btn"
       type="button"
-      aria-label={mounted && isDark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
       onClick={toggle}
       className={cn(
-        "flex items-center justify-center h-8 w-8 rounded-full border border-neutral-200/80 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors shadow-sm cursor-pointer",
+        "relative z-20 flex items-center justify-center h-8 w-8 rounded-full border border-neutral-200/80 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors shadow-sm cursor-pointer",
         className
       )}
       {...rest}

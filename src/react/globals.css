@@ -340,7 +340,42 @@ body.theme-dark .landing-hero {
   display: flex;
   align-items: center;
   gap: 8px;
-  z-index: 10;
+  z-index: 999;
+}
+
+html.dark .landing-top-logo span,
+.dark .landing-top-logo span {
+  color: #ffffff !important;
+}
+
+html.dark .landing-social-pill,
+.dark .landing-social-pill {
+  background: rgba(20, 20, 28, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #ededed !important;
+}
+
+html.dark .landing-social-pill svg,
+.dark .landing-social-pill svg {
+  color: #ededed !important;
+}
+
+html.dark .landing-island,
+.dark .landing-island {
+  background: rgba(15, 15, 20, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+html.dark .landing-island-btn,
+.dark .landing-island-btn {
+  color: #ffffff !important;
+}
+
+html.dark .landing-island-btn:hover:not(:disabled),
+.dark .landing-island-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
 }
 
 .landing-social-pill {
