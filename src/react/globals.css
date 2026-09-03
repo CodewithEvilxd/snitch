@@ -96,10 +96,24 @@ body,
   --accent-foreground: 0 0% 9%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 89.8%;
   --input: 0 0% 89.8%;
   --ring: 0 0% 3.9%;
   --radius: 0.5rem;
+
+  /* macOS Menu Bar Design Tokens */
+  --mac-menubar-bg: rgba(255, 255, 255, 0.65);
+  --mac-menubar-border: rgba(0, 0, 0, 0.08);
+  --mac-menubar-text: #1d1d1f;
+  --mac-menu-dropdown-bg: rgba(255, 255, 255, 0.88);
+  --mac-menu-dropdown-border: rgba(0, 0, 0, 0.12);
+}
+
+.dark {
+  --mac-menubar-bg: rgba(22, 22, 28, 0.74);
+  --mac-menubar-border: rgba(255, 255, 255, 0.1);
+  --mac-menubar-text: #f5f5f7;
+  --mac-menu-dropdown-bg: rgba(32, 32, 38, 0.9);
+  --mac-menu-dropdown-border: rgba(255, 255, 255, 0.14);
 }
 
 /* Editor sidebar motion overrides */
@@ -320,7 +334,7 @@ body.theme-dark .landing-hero {
 
 .landing-top-logo {
   position: absolute;
-  top: 10px;
+  top: 48px;
   left: max(20px, calc((100% - 1200px) / 2));
   display: inline-flex;
   flex-direction: column;
@@ -415,7 +429,7 @@ img {
 /* ── Top-right social pill cluster ── */
 .landing-top-social {
   position: absolute;
-  top: 30px;
+  top: 48px;
   right: max(20px, calc((100% - 1200px) / 2));
   display: flex;
   align-items: center;

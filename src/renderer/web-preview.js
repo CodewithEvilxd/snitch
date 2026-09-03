@@ -163,4 +163,24 @@
     onLicenseStatusChanged: noop,
     onAppUpdateState: noop,
   };
+
+  // Handle URL action triggers from macOS menu bar
+  window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const action = params.get('action');
+    if (!action) return;
+
+    setTimeout(() => {
+      if (action === 'region') {
+        document.getElementById('btn-capture-region')?.click();
+      } else if (action === 'window') {
+        document.getElementById('btn-capture-window')?.click();
+      } else if (action === 'fullscreen') {
+        document.getElementById('btn-capture-fullscreen')?.click();
+      } else if (action === 'upload') {
+        document.getElementById('btn-upload-file')?.click();
+      }
+    }, 450);
+  });
 })();
+

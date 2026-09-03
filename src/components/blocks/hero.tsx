@@ -1,10 +1,14 @@
 import React from "react";
 import { ToggleTheme } from "../ui/toggle-theme";
+import { MacOSMenuBar } from "./macos-menubar";
 import "../../react/toolbar-exact.css";
 
 export const Hero = () => {
   return (
-    <section className="landing-hero min-h-screen relative overflow-hidden bg-[#fafafa] dark:bg-[#090a0f] text-neutral-900 dark:text-neutral-100 transition-colors duration-300">
+    <section className="landing-hero min-h-screen relative overflow-hidden bg-[#fafafa] dark:bg-[#090a0f] text-neutral-900 dark:text-neutral-100 transition-colors duration-300 pt-[30px]">
+      
+      {/* ─── macOS Full-Width System Menu Bar (No Apple Logo, All Working) ─── */}
+      <MacOSMenuBar />
       
       {/* Subtle Luxury Ambient Radial Lighting */}
       <div 
@@ -34,9 +38,8 @@ export const Hero = () => {
         </div>
       </a>
 
-      {/* Top Right Social & Theme Toggle */}
+      {/* Top Right Social Pill (Theme toggle now in menu bar) */}
       <div className="landing-top-social" aria-label="Creator links">
-        <ToggleTheme />
         <a
           href="https://github.com/codewithevilxd/snitch"
           className="landing-social-pill font-ndot tracking-wider text-xs"
@@ -51,72 +54,7 @@ export const Hero = () => {
         </a>
       </div>
 
-      {/* ─── REAL macOS Dynamic Island Toolbar (Dock Magnification & Spring Physics) ─── */}
-      <header className="mac-island" aria-label="Quick Studio Launcher">
-        <div className="mac-island-rim" aria-hidden="true" />
-
-        {/* Mascot brand with glowing macOS engine status dot */}
-        <a className="mac-island-brand group" href="/" aria-label="Snitch Studio Home">
-          <img src="/inki.png" alt="Snitch" className="mac-island-logo select-none" draggable={false} />
-          <span className="mac-island-status-dot" title="Local Engine Ready" />
-        </a>
-
-        {/* macOS Hairline Vertical Divider */}
-        <div className="mac-island-divider" aria-hidden="true" />
-
-        {/* Capture Action Modes with Dock Magnification & Tooltips */}
-        <div className="mac-island-modes">
-          <a className="mac-island-btn group" href="/capture.html" aria-label="Capture Region">
-            <div className="mac-island-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <path d="M4 8V4h4"></path><path d="M4 16v4h4"></path><path d="M16 4h4v4"></path><path d="M16 20h4v-4"></path><rect x="8" y="8" width="8" height="8" rx="1" strokeDasharray="2 2"></rect>
-              </svg>
-            </div>
-            <div className="mac-island-tooltip font-ndot">
-              <span>REGION</span>
-              <kbd>C</kbd>
-            </div>
-          </a>
-
-          <a className="mac-island-btn group" href="/capture.html" aria-label="Capture Window">
-            <div className="mac-island-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 8h18"></path><circle cx="5.5" cy="6" r=".5" fill="currentColor"></circle><circle cx="7.5" cy="6" r=".5" fill="currentColor"></circle><circle cx="9.5" cy="6" r=".5" fill="currentColor"></circle>
-              </svg>
-            </div>
-            <div className="mac-island-tooltip font-ndot">
-              <span>WINDOW</span>
-              <kbd>W</kbd>
-            </div>
-          </a>
-
-          <a className="mac-island-btn group" href="/capture.html" aria-label="Capture Fullscreen">
-            <div className="mac-island-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M6 21h12"></path><path d="M12 17v4"></path>
-              </svg>
-            </div>
-            <div className="mac-island-tooltip font-ndot">
-              <span>FULLSCREEN</span>
-              <kbd>F</kbd>
-            </div>
-          </a>
-
-          <a className="mac-island-btn group" href="/capture.html" aria-label="Upload Image">
-            <div className="mac-island-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="17 8 12 3 7 8"></polyline>
-                <line x1="12" y1="3" x2="12" y2="15"></line>
-              </svg>
-            </div>
-            <div className="mac-island-tooltip font-ndot">
-              <span>UPLOAD</span>
-              <kbd>U</kbd>
-            </div>
-          </a>
-        </div>
-      </header>
+      {/* Old floating island replaced by full macOS menu bar above */}
 
       {/* ─── CLEANSHOT X STYLE ASYMMETRIC SPLIT-SCREEN HERO ─── */}
       <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-32 sm:pt-36 lg:pt-36 pb-16 px-6 lg:px-12">
