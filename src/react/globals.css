@@ -44,39 +44,51 @@
   --font-mono: "NDot57", monospace;
 }
 
-/* Universal Nothing Phone Dot-Matrix Font Across ENTIRE Homepage */
+/* Authentic Nothing Phone Design System (Nothing OS Inspired) */
 html,
 body,
-.landing-page,
-.landing-page *,
-.landing-page p,
-.landing-page span,
-.landing-page div,
-.landing-page a,
-.landing-page button,
-.landing-page h1,
-.landing-page h2,
-.landing-page h3,
-.landing-page h4,
-.landing-page kbd,
-.landing-page strong,
-.landing-island,
-.landing-island * {
-  font-family: "NDot57", monospace !important;
+.landing-page {
+  font-family: "NDot57", "NType82", monospace;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Explicit Nothing Phone Font Utilities */
+html.dark body,
+html.dark .landing-page,
+.dark .landing-page,
+body.theme-dark .landing-page {
+  color: #f8fafc;
+}
+
+/* Nothing Phone Dot-Matrix Display Utilities */
 .font-ndot,
-.font-ntype,
-.font-ntype-headline,
-.font-mono,
-.font-heading,
-.font-sans {
+[class*="font-ndot"],
+.landing-top-wordmark,
+.landing-social-pill,
+.landing-feature-heading,
+.feat-card-title,
+.feat-pill,
+.feat-tool-key,
+kbd,
+button.font-ndot,
+a.font-ndot,
+span.font-ndot,
+div.font-ndot,
+h1, h2, h3, h4 {
   font-family: "NDot57", monospace !important;
 }
 
-.font-sans {
-  font-family: "NType82", sans-serif !important;
+/* Nothing Phone Clean Grotesque Sans for Long Readable Body Paragraphs */
+.font-ntype,
+[class*="font-ntype"],
+.feat-card-body p,
+.landing-feature-subhead {
+  font-family: "NType82", "Inter", sans-serif !important;
+}
+
+.font-ntype-headline {
+  font-family: "NType82-Headline", sans-serif !important;
 }
 
 :root {
@@ -100,20 +112,20 @@ body,
   --ring: 0 0% 3.9%;
   --radius: 0.5rem;
 
-  /* macOS Menu Bar Design Tokens */
-  --mac-menubar-bg: rgba(255, 255, 255, 0.65);
-  --mac-menubar-border: rgba(0, 0, 0, 0.08);
-  --mac-menubar-text: #1d1d1f;
-  --mac-menu-dropdown-bg: rgba(255, 255, 255, 0.88);
-  --mac-menu-dropdown-border: rgba(0, 0, 0, 0.12);
+  /* macOS Menu Bar Design Tokens - Enhanced Visibility & Contrast */
+  --mac-menubar-bg: rgba(255, 255, 255, 0.88);
+  --mac-menubar-border: rgba(0, 0, 0, 0.14);
+  --mac-menubar-text: #111113;
+  --mac-menu-dropdown-bg: rgba(255, 255, 255, 0.94);
+  --mac-menu-dropdown-border: rgba(0, 0, 0, 0.16);
 }
 
 .dark {
-  --mac-menubar-bg: rgba(22, 22, 28, 0.74);
-  --mac-menubar-border: rgba(255, 255, 255, 0.1);
-  --mac-menubar-text: #f5f5f7;
-  --mac-menu-dropdown-bg: rgba(32, 32, 38, 0.9);
-  --mac-menu-dropdown-border: rgba(255, 255, 255, 0.14);
+  --mac-menubar-bg: rgba(14, 15, 20, 0.88);
+  --mac-menubar-border: rgba(255, 255, 255, 0.14);
+  --mac-menubar-text: #ffffff;
+  --mac-menu-dropdown-bg: rgba(24, 25, 32, 0.94);
+  --mac-menu-dropdown-border: rgba(255, 255, 255, 0.16);
 }
 
 /* Editor sidebar motion overrides */
@@ -705,21 +717,34 @@ body.theme-dark .landing-features {
 }
 
 .landing-feature-heading {
-  font-family: var(--font-display), "Outfit", sans-serif;
+  font-family: "NDot57", monospace;
   font-size: clamp(2.2rem, 3.4vw, 3rem);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.035em;
-  color: #111;
+  letter-spacing: -0.01em;
+  color: #0f172a;
   max-width: 560px;
 }
 
+html.dark .landing-feature-heading,
+.dark .landing-feature-heading,
+body.theme-dark .landing-feature-heading {
+  color: #ffffff !important;
+}
+
 .landing-feature-subhead {
-  font-size: 0.9rem;
-  color: rgba(17, 17, 17, 0.48);
+  font-family: "NType82", "Inter", sans-serif;
+  font-size: 1rem;
+  color: #475569;
   line-height: 1.6;
-  max-width: 400px;
+  max-width: 440px;
   margin-top: 0;
+}
+
+html.dark .landing-feature-subhead,
+.dark .landing-feature-subhead,
+body.theme-dark .landing-feature-subhead {
+  color: #94a3b8 !important;
 }
 
 .landing-feature-grid {
@@ -757,16 +782,30 @@ body.theme-dark .landing-features {
 }
 
 .feat-card-body p {
-  color: rgba(17, 17, 17, 0.58);
-  font-size: 0.92rem;
-  line-height: 1.62;
+  font-family: "NType82", "Inter", sans-serif;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.65;
   max-width: 360px;
 }
 
+html.dark .feat-card-body p,
+.dark .feat-card-body p,
+body.theme-dark .feat-card-body p {
+  color: #cbd5e1 !important;
+}
+
 .feat-card-title {
-  color: #111;
-  font-weight: 600;
-  font-size: 0.92rem;
+  font-family: "NDot57", monospace;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+html.dark .feat-card-title,
+.dark .feat-card-title,
+body.theme-dark .feat-card-title {
+  color: #ffffff !important;
 }
 
 /* ─── Illustration container ─── */
@@ -777,7 +816,13 @@ body.theme-dark .landing-features {
   align-items: center;
   justify-content: center;
   padding: 28px 24px;
-  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+}
+
+html.dark .feat-illust,
+.dark .feat-illust,
+body.theme-dark .feat-illust {
+  border-bottom-color: rgba(255, 255, 255, 0.12) !important;
 }
 
 /* ═══ Illustration 1 — icon grid (2×2 centered) ═══ */
@@ -791,18 +836,32 @@ body.theme-dark .landing-features {
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  border: 1.5px solid rgba(17, 17, 17, 0.12);
-  background: transparent;
+  border: 1.5px solid rgba(17, 17, 17, 0.16);
+  background: #f8fafc;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #444;
+  color: #1e293b;
   transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .feat-icon-sym,
+.dark .feat-icon-sym,
+body.theme-dark .feat-icon-sym {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #f1f5f9 !important;
 }
 
 .landing-feature-card:hover .feat-icon-sym {
   transform: translateY(-2px);
-  border-color: rgba(17, 17, 17, 0.28);
+  border-color: rgba(17, 17, 17, 0.35);
+}
+
+html.dark .landing-feature-card:hover .feat-icon-sym,
+.dark .landing-feature-card:hover .feat-icon-sym,
+body.theme-dark .landing-feature-card:hover .feat-icon-sym {
+  border-color: rgba(255, 255, 255, 0.45) !important;
 }
 
 /* ═══ Illustration 2 — annotation tool list ═══ */
@@ -819,8 +878,14 @@ body.theme-dark .landing-features {
   align-items: center;
   gap: 10px;
   padding: 6px 4px;
-  border-bottom: 1px solid rgba(17, 17, 17, 0.05);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
   transition: background 0.2s ease;
+}
+
+html.dark .feat-tool-row,
+.dark .feat-tool-row,
+body.theme-dark .feat-tool-row {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 .feat-tool-row:last-child {
@@ -828,7 +893,13 @@ body.theme-dark .landing-features {
 }
 
 .feat-tool-row:hover {
-  background: rgba(17, 17, 17, 0.025);
+  background: rgba(17, 17, 17, 0.04);
+}
+
+html.dark .feat-tool-row:hover,
+.dark .feat-tool-row:hover,
+body.theme-dark .feat-tool-row:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
 }
 
 .feat-tool-icon {
@@ -837,28 +908,49 @@ body.theme-dark .landing-features {
   justify-content: center;
   width: 20px;
   height: 20px;
-  color: #555;
+  color: #334155;
   flex-shrink: 0;
+}
+
+html.dark .feat-tool-icon,
+.dark .feat-tool-icon,
+body.theme-dark .feat-tool-icon {
+  color: #cbd5e1 !important;
 }
 
 .feat-tool-label {
   flex: 1;
-  font-family: "NType82", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 450;
-  color: #222;
+  font-family: "NType82", "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #0f172a;
   letter-spacing: 0.005em;
+}
+
+html.dark .feat-tool-label,
+.dark .feat-tool-label,
+body.theme-dark .feat-tool-label {
+  color: #f1f5f9 !important;
 }
 
 .feat-tool-key {
   font-family: "NDot57", monospace;
-  font-size: 0.68rem;
-  font-weight: 400;
-  color: rgba(17, 17, 17, 0.45);
-  border: 1px solid rgba(17, 17, 17, 0.12);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #1e293b;
+  background: #f1f5f9;
+  border: 1px solid rgba(17, 17, 17, 0.16);
   border-radius: 4px;
   padding: 1px 6px;
   line-height: 1.6;
+}
+
+html.dark .feat-tool-key,
+.dark .feat-tool-key,
+body.theme-dark .feat-tool-key {
+  color: #f8fafc !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 /* ═══ Illustration 3 — action pills ═══ */
@@ -875,24 +967,44 @@ body.theme-dark .landing-features {
   align-items: center;
   gap: 6px;
   padding: 6px 14px;
-  font-size: 0.76rem;
-  font-weight: 500;
-  color: #333;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #0f172a;
   background: #ffffff;
-  border: 1px solid rgba(17, 17, 17, 0.12);
+  border: 1px solid rgba(17, 17, 17, 0.16);
   border-radius: 9999px;
   white-space: nowrap;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   cursor: default;
 }
 
+html.dark .feat-pill,
+.dark .feat-pill,
+body.theme-dark .feat-pill {
+  color: #f8fafc !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
 .feat-pill svg {
   flex-shrink: 0;
-  color: #555;
+  color: #334155;
+}
+
+html.dark .feat-pill svg,
+.dark .feat-pill svg,
+body.theme-dark .feat-pill svg {
+  color: #cbd5e1 !important;
 }
 
 .landing-feature-card:hover .feat-pill {
-  border-color: rgba(17, 17, 17, 0.24);
+  border-color: rgba(17, 17, 17, 0.3);
+}
+
+html.dark .landing-feature-card:hover .feat-pill,
+.dark .landing-feature-card:hover .feat-pill,
+body.theme-dark .landing-feature-card:hover .feat-pill {
+  border-color: rgba(255, 255, 255, 0.35) !important;
 }
 
 .feat-pill:hover {
