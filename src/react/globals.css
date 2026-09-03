@@ -408,7 +408,6 @@ body.theme-dark .landing-hero {
 /* Global rule: disable image dragging across the application */
 img {
   -webkit-user-drag: none;
-  user-drag: none;
   user-select: none;
   -webkit-user-select: none;
 }
