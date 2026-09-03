@@ -13,12 +13,24 @@ export const Hero = () => {
       />
       <div className="landing-dot-grid opacity-35 dark:opacity-15" aria-hidden="true" />
 
-      {/* Top Left Brand Logo - Mascot perched above and biting the text */}
+      {/* Top Left Brand Logo - Mascot perched above and realistically biting the text */}
       <a href="/" className="landing-top-logo group" aria-label="Snitch home">
-        <img src="/inki.png" alt="Snitch Mascot" className="landing-top-cat" />
-        <span className="font-ndot font-normal text-[1.12rem] tracking-[0.16em] text-neutral-900 dark:text-white">
-          SNITCH
-        </span>
+        <div className="relative flex flex-col items-center select-none">
+          <img
+            src="/inki-biting-clean.png"
+            alt="Snitch Mascot biting wordmark"
+            className="landing-top-cat"
+          />
+          <div className="relative flex items-center justify-center">
+            <span className="landing-top-wordmark font-ndot font-normal text-[1.18rem] tracking-[0.18em] text-neutral-900 dark:text-white">
+              SNITCH
+            </span>
+            {/* Chewed dot-matrix crumbs */}
+            <span className="landing-crumb landing-crumb-1 text-neutral-900 dark:text-white" aria-hidden="true" />
+            <span className="landing-crumb landing-crumb-2 text-neutral-900 dark:text-white" aria-hidden="true" />
+            <span className="landing-crumb landing-crumb-3 text-neutral-900 dark:text-white" aria-hidden="true" />
+          </div>
+        </div>
       </a>
 
       {/* Top Right Social & Theme Toggle */}
