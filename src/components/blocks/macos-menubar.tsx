@@ -35,7 +35,9 @@ import {
   Headphones,
   Power,
   Smartphone,
-  X
+  X,
+  Shield,
+  Copy
 } from "lucide-react";
 import { ThemeToggle } from "../motion/theme-toggle";
 import { DynamicIsland, DynamicIslandView } from "../motion/dynamic-island";
@@ -143,6 +145,17 @@ export const MacOSMenuBar: React.FC = () => {
   const [islandView, setIslandView] = useState<string | null>(null);
   const [activeIslandAction, setActiveIslandAction] = useState<string>("");
   const islandTimeoutRef = useRef<any>(null);
+
+  const [activeIslandScenario, setActiveIslandScenario] = useState<number>(0);
+
+  // Auto-cycle through the Dynamic Island live states every 3.6 seconds on mobile
+  useEffect(() => {
+    if (islandView !== null) return;
+    const interval = setInterval(() => {
+      setActiveIslandScenario((prev) => (prev + 1) % 6);
+    }, 3600);
+    return () => clearInterval(interval);
+  }, [islandView]);
 
   const triggerIslandActivity = (actionTitle: string) => {
     setActiveIslandAction(actionTitle);
@@ -900,249 +913,101 @@ export const MacOSMenuBar: React.FC = () => {
         aria-hidden="true" 
       />
 
-      {/* ─── MOBILE: Dynamic Island Top Floating Capsule (< 768px) ─── */}
-      <header className="fixed top-3 left-0 right-0 z-[9999] flex md:hidden items-center justify-center pointer-events-none px-4">
-        <div className="pointer-events-auto">
-          <DynamicIsland
-            view={islandView}
-            compact={
-              <div className="flex items-center justify-center gap-3.5 sm:gap-4 px-2 py-0.5 text-neutral-900 dark:text-neutral-100">
-                {/* 1. Mascot Logo Button (Expands Island Menu) */}
-                <button
-                  onClick={() => {
-                    setIslandView(islandView === "menu" ? null : "menu");
-                    playMacAudioBeep(520, "sine", 0.04);
-                  }}
-                  className="flex items-center justify-center w-7 h-7 rounded-[8px] bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 p-1 hover:scale-105 active:scale-95 transition-transform outline-none cursor-pointer shadow-sm shrink-0"
-                  title="Snitch Menu"
-                  aria-label="Open Snitch Menu"
-                >
-                  <img
-                    src="/inki.png"
-                    alt="Snitch Mascot"
-                    className="w-4 h-4 object-contain select-none pointer-events-none brightness-110"
-                  />
-                </button>
+      {/* ─── MOBILE: Clean Floating Capsule Navbar with Mascot on Left (< 768px) ─── */}
+      <header className="fixed top-4 sm:top-5 left-0 right-0 z-[99999] flex md:hidden items-center justify-center pointer-events-none px-4 pt-[env(safe-area-inset-top)]">
+        <div className="relative pointer-events-auto">
 
-                {/* 2. Area / Region Capture */}
-                <button
-                  onClick={() => {
-                    openCaptureMode("region");
-                    triggerIslandActivity("Area Capture Ready");
-                  }}
-                  className="flex items-center justify-center p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/15 active:scale-90 transition-transform outline-none cursor-pointer shrink-0"
-                  title="Capture Region"
-                  aria-label="Capture Region"
-                >
-                  <Crop className="w-4 h-4 stroke-[2.2]" />
-                </button>
-
-                {/* 3. Window Capture */}
-                <button
-                  onClick={() => {
-                    openCaptureMode("window");
-                    triggerIslandActivity("Window Capture Ready");
-                  }}
-                  className="flex items-center justify-center p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/15 active:scale-90 transition-transform outline-none cursor-pointer shrink-0"
-                  title="Capture Window"
-                  aria-label="Capture Window"
-                >
-                  <AppWindow className="w-4 h-4 stroke-[2.2]" />
-                </button>
-
-                {/* 4. Fullscreen Capture */}
-                <button
-                  onClick={() => {
-                    openCaptureMode("fullscreen");
-                    triggerIslandActivity("Fullscreen Capture Ready");
-                  }}
-                  className="flex items-center justify-center p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/15 active:scale-90 transition-transform outline-none cursor-pointer shrink-0"
-                  title="Capture Fullscreen"
-                  aria-label="Capture Fullscreen"
-                >
-                  <Monitor className="w-4 h-4 stroke-[2.2]" />
-                </button>
-
-                {/* 5. Upload / Open File */}
-                <button
-                  onClick={() => {
-                    handleOpenFilePicker();
-                    triggerIslandActivity("File Picker Opened");
-                  }}
-                  className="flex items-center justify-center p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/15 active:scale-90 transition-transform outline-none cursor-pointer shrink-0"
-                  title="Open Local Image"
-                  aria-label="Open Local Image"
-                >
-                  <svg className="w-4 h-4 stroke-[2.2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="17 8 12 3 7 8" />
-                    <line x1="12" y1="3" x2="12" y2="15" />
-                  </svg>
-                </button>
-              </div>
-            }
+          {/* Logo on the Left of Navbar, Tilted & Tucked In (Paws Perfectly Biting Letters as in Reference) */}
+          <a
+            href="/"
+            className="absolute -left-24 sm:-left-26 top-1/2 -translate-y-[45%] z-0 flex flex-col items-center select-none -rotate-[10deg] cursor-pointer"
+            title="Snitch Home"
+            aria-label="Snitch Home"
           >
-            {/* Morph View: Full Mobile System Menu */}
-            <DynamicIslandView id="menu">
-              <div className="w-[310px] max-w-[90vw] flex flex-col gap-3.5 text-neutral-900 dark:text-white select-none">
-                {/* Header */}
-                <div className="flex items-center justify-between pb-2 border-b border-black/[0.08] dark:border-white/[0.12]">
-                  <div className="flex items-center gap-2">
-                    <img src="/inki.png" alt="Snitch" className="w-5 h-5 object-contain" />
-                    <span className="font-ndot font-bold text-sm tracking-wider uppercase">SNITCH STUDIO</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-ndot text-xs font-semibold text-emerald-500 flex items-center gap-1">
-                      {batteryLevel}%
-                      {getBatteryIcon()}
-                    </span>
-                    <button
-                      onClick={() => setIslandView(null)}
-                      className="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/15 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors cursor-pointer"
-                      aria-label="Close menu"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
+            <img
+              src="/inki-biting-clean.png"
+              alt="Snitch Mascot biting wordmark"
+              className="relative z-10 w-[86px] sm:w-[94px] h-auto object-contain select-none pointer-events-none -mb-3 sm:-mb-3.5 drop-shadow-[0_6px_18px_rgba(0,0,0,0.35)] dark:drop-shadow-[0_0_20px_rgba(255,255,255,0.35)]"
+              draggable={false}
+            />
+            <div className="relative z-[2] flex items-center justify-center select-none">
+              <span className="font-ndot text-[18px] sm:text-[19.5px] tracking-[0.25em] pl-[0.25em] text-neutral-900 dark:text-white select-none font-semibold">
+                SNITCH
+              </span>
+              <span className="landing-crumb landing-crumb-1 text-neutral-900 dark:text-white select-none scale-110" aria-hidden="true" />
+              <span className="landing-crumb landing-crumb-2 text-neutral-900 dark:text-white select-none scale-110" aria-hidden="true" />
+              <span className="landing-crumb landing-crumb-3 text-neutral-900 dark:text-white select-none scale-110" aria-hidden="true" />
+            </div>
+          </a>
 
-                {/* Quick Action Tiles */}
-                <div className="grid grid-cols-4 gap-2">
-                  <button
-                    onClick={() => {
-                      openCaptureMode("region");
-                      setIslandView(null);
-                    }}
-                    className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.06] hover:bg-black/10 dark:hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
-                  >
-                    <Crop className="w-4 h-4 text-blue-500" />
-                    <span className="font-ndot text-[10px] uppercase">AREA</span>
-                  </button>
+          <nav
+            className="relative z-10 flex items-center justify-center gap-3 sm:gap-4 px-4 py-2 rounded-full bg-white/95 text-neutral-900 dark:bg-neutral-900/95 dark:text-neutral-100 border border-black/10 dark:border-white/15 shadow-[0_12px_32px_rgba(0,0,0,0.16)] dark:shadow-[0_16px_40px_rgba(0,0,0,0.65)] backdrop-blur-2xl transition-all"
+            aria-label="Mobile Quick Capture Navbar"
+          >
+            {/* Area / Region Capture */}
+            <button
+              onClick={() => openCaptureMode("region")}
+              className="flex items-center justify-center p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/15 active:scale-90 transition-transform outline-none cursor-pointer shrink-0"
+              title="Capture Region"
+              aria-label="Capture Region"
+            >
+              <Crop className="w-[18px] h-[18px] stroke-[2.2]" />
+            </button>
 
-                  <button
-                    onClick={() => {
-                      openCaptureMode("window");
-                      setIslandView(null);
-                    }}
-                    className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.06] hover:bg-black/10 dark:hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
-                  >
-                    <AppWindow className="w-4 h-4 text-emerald-500" />
-                    <span className="font-ndot text-[10px] uppercase">WINDOW</span>
-                  </button>
+            {/* Window Capture */}
+            <button
+              onClick={() => openCaptureMode("window")}
+              className="flex items-center justify-center p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/15 active:scale-90 transition-transform outline-none cursor-pointer shrink-0"
+              title="Capture Window"
+              aria-label="Capture Window"
+            >
+              <AppWindow className="w-[18px] h-[18px] stroke-[2.2]" />
+            </button>
 
-                  <button
-                    onClick={() => {
-                      openCaptureMode("fullscreen");
-                      setIslandView(null);
-                    }}
-                    className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.06] hover:bg-black/10 dark:hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
-                  >
-                    <Monitor className="w-4 h-4 text-purple-500" />
-                    <span className="font-ndot text-[10px] uppercase">FULL</span>
-                  </button>
+            {/* Fullscreen Capture */}
+            <button
+              onClick={() => openCaptureMode("fullscreen")}
+              className="flex items-center justify-center p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/15 active:scale-90 transition-transform outline-none cursor-pointer shrink-0"
+              title="Capture Fullscreen"
+              aria-label="Capture Fullscreen"
+            >
+              <Monitor className="w-[18px] h-[18px] stroke-[2.2]" />
+            </button>
 
-                  <button
-                    onClick={() => {
-                      handleOpenFilePicker();
-                      setIslandView(null);
-                    }}
-                    className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.06] hover:bg-black/10 dark:hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
-                  >
-                    <UploadCloud className="w-4 h-4 text-amber-500" />
-                    <span className="font-ndot text-[10px] uppercase">OPEN</span>
-                  </button>
-                </div>
+            {/* Upload / Open File */}
+            <button
+              onClick={() => handleOpenFilePicker()}
+              className="flex items-center justify-center p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/15 active:scale-90 transition-transform outline-none cursor-pointer shrink-0"
+              title="Open Local Image"
+              aria-label="Open Local Image"
+            >
+              <svg className="w-[18px] h-[18px] stroke-[2.2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+            </button>
 
-                {/* System Status Tiles */}
-                <div className="grid grid-cols-2 gap-2 text-[11px]">
-                  {/* Wi-Fi Info Tile */}
-                  <div className="flex items-center gap-2 p-2 rounded-xl bg-blue-500/10 dark:bg-blue-400/10 border border-blue-500/20">
-                    <Wifi className="w-3.5 h-3.5 text-blue-500 shrink-0" />
-                    <div className="truncate">
-                      <div className="font-semibold text-blue-600 dark:text-blue-400 truncate">{connectedSSID}</div>
-                      <div className="text-[9px] opacity-70 font-mono">Wi-Fi Connected</div>
-                    </div>
-                  </div>
+            {/* Divider */}
+            <div className="w-[1px] h-4 bg-neutral-300 dark:bg-neutral-700 mx-0.5 shrink-0" aria-hidden="true" />
 
-                  {/* Theme Toggle Tile */}
-                  <button
-                    onClick={() => {
-                      toggleDarkMode();
-                      playMacAudioBeep(580, "sine", 0.05);
-                    }}
-                    className="flex items-center gap-2 p-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.1] hover:bg-black/8 dark:hover:bg-white/10 transition-colors cursor-pointer"
-                  >
-                    {isDarkMode ? (
-                      <Sun className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                    ) : (
-                      <Moon className="w-3.5 h-3.5 text-blue-500 shrink-0" />
-                    )}
-                    <div className="text-left">
-                      <div className="font-semibold">{isDarkMode ? "Light Mode" : "Dark Mode"}</div>
-                      <div className="text-[9px] opacity-70">Theme Switch</div>
-                    </div>
-                  </button>
-                </div>
-
-                {/* Main Action & Navigation */}
-                <div className="flex flex-col gap-1.5 pt-1">
-                  <a
-                    href="/capture.html"
-                    className="w-full py-2.5 rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-ndot text-xs tracking-wider uppercase font-bold flex items-center justify-center gap-2 shadow-md active:scale-98 transition-transform"
-                  >
-                    <span>LAUNCH STUDIO</span>
-                    <span>➔</span>
-                  </a>
-
-                  <div className="flex items-center justify-between text-[11px] font-ndot uppercase tracking-wider text-neutral-600 dark:text-neutral-400 px-1 pt-1">
-                    <button
-                      onClick={() => {
-                        scrollToSection("features");
-                        setIslandView(null);
-                      }}
-                      className="hover:text-neutral-900 dark:hover:text-white transition-colors cursor-pointer"
-                    >
-                      Features
-                    </button>
-                    <span>·</span>
-                    <button
-                      onClick={() => {
-                        scrollToSection("shortcuts");
-                        setIslandView(null);
-                      }}
-                      className="hover:text-neutral-900 dark:hover:text-white transition-colors cursor-pointer"
-                    >
-                      Shortcuts
-                    </button>
-                    <span>·</span>
-                    <a
-                      href="https://github.com/codewithevilxd/snitch"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-neutral-900 dark:hover:text-white transition-colors"
-                    >
-                      GitHub ↗
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </DynamicIslandView>
-
-            {/* Morph View: Live Activity Feedback */}
-            <DynamicIslandView id="activity">
-              <div className="flex items-center gap-3 px-2 py-0.5 text-xs text-neutral-900 dark:text-white font-ndot select-none">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="tracking-wide font-semibold uppercase">{activeIslandAction}</span>
-                <button
-                  onClick={() => setIslandView(null)}
-                  className="p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/15 text-neutral-400 hover:text-white transition-colors ml-1 cursor-pointer"
-                  aria-label="Dismiss activity"
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              </div>
-            </DynamicIslandView>
-          </DynamicIsland>
+            {/* Theme Toggle Button */}
+            <button
+              onClick={() => {
+                toggleDarkMode();
+                playMacAudioBeep(580, "sine", 0.05);
+              }}
+              className="flex items-center justify-center p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/15 active:scale-90 transition-transform outline-none cursor-pointer shrink-0 text-neutral-700 dark:text-neutral-300"
+              title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              aria-label="Toggle Theme"
+            >
+              {isDarkMode ? (
+                <Sun className="w-[18px] h-[18px] text-amber-400 stroke-[2.2] animate-in fade-in zoom-in duration-200" />
+              ) : (
+                <Moon className="w-[18px] h-[18px] text-blue-500 stroke-[2.2] animate-in fade-in zoom-in duration-200" />
+              )}
+            </button>
+          </nav>
         </div>
       </header>
 

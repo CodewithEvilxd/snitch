@@ -644,6 +644,16 @@ html.dark .landing-island-btn:hover:not(:disabled),
   pointer-events: none;
 }
 
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  .landing-scroll-stroke {
+    display: none !important;
+  }
+}
+
 .landing-stroke-svg {
   position: absolute;
   top: -50px;

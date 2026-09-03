@@ -4,16 +4,17 @@ import { MacOSMenuBar } from "./macos-menubar";
 import "../../react/toolbar-exact.css";
 
 export const Hero = () => {
+
   return (
-    <section className="landing-hero min-h-screen relative overflow-hidden bg-[#fafafa] dark:bg-[#090a0f] text-neutral-900 dark:text-neutral-100 transition-colors duration-300 pt-[36px]">
-      
+    <section className="landing-hero min-h-screen relative overflow-hidden bg-[#fafafa] dark:bg-[#090a0f] text-neutral-900 dark:text-neutral-100 transition-colors duration-300 pt-28 sm:pt-32 md:pt-[36px]">
+
       {/* ─── macOS Full-Width System Menu Bar (No Apple Logo, All Working) ─── */}
       <MacOSMenuBar />
-      
+
       {/* Subtle Luxury Ambient Radial Lighting */}
-      <div 
-        className="absolute top-0 right-1/4 w-[600px] h-[600px] pointer-events-none opacity-40 dark:opacity-20 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.06),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.1),transparent_70%)]" 
-        aria-hidden="true" 
+      <div
+        className="absolute top-0 right-1/4 w-[600px] h-[600px] pointer-events-none opacity-40 dark:opacity-20 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.06),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.1),transparent_70%)]"
+        aria-hidden="true"
       />
       <div className="landing-dot-grid opacity-35 dark:opacity-15" aria-hidden="true" />
 
@@ -57,12 +58,12 @@ export const Hero = () => {
       {/* Old floating island replaced by full macOS menu bar above */}
 
       {/* ─── CLEANSHOT X STYLE ASYMMETRIC SPLIT-SCREEN HERO ─── */}
-      <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-32 sm:pt-36 lg:pt-36 pb-16 px-6 lg:px-12">
+      <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-24 sm:pt-28 lg:pt-36 pb-16 px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
-          
+
           {/* LEFT COLUMN: Clean, Confident, Non-Centered Typography (5.5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-start text-left lg:pt-3">
-            
+
             {/* Left-Aligned Nothing Phone Dot Matrix Headline */}
             <h1 className="font-ndot text-3xl sm:text-4xl lg:text-[3.2rem] font-normal tracking-wide text-neutral-950 dark:text-white leading-[1.12] mb-5 uppercase">
               Capture every pixel. <br />
@@ -121,13 +122,13 @@ export const Hero = () => {
 
           {/* RIGHT COLUMN: CleanShot X Style Luxury Studio Window (7 cols) */}
           <div className="lg:col-span-7 relative">
-            
+
             {/* Subtle Ambient Backlight Glow */}
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-neutral-200/50 via-neutral-100/20 to-neutral-200/50 dark:from-neutral-800/30 dark:via-neutral-900/10 dark:to-neutral-800/30 blur-2xl pointer-events-none" />
 
             {/* macOS Studio Window Frame */}
             <div className="relative rounded-2xl p-1.5 sm:p-2 bg-gradient-to-b from-neutral-200/80 to-neutral-300/40 dark:from-neutral-800/60 dark:to-neutral-900/40 border border-neutral-300/80 dark:border-neutral-800 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.12)] dark:shadow-[0_40px_110px_-30px_rgba(0,0,0,0.8)] backdrop-blur-xl hover:shadow-[0_40px_120px_-20px_rgba(0,0,0,0.18)] dark:hover:shadow-[0_50px_140px_-30px_rgba(0,0,0,0.9)] transition-all duration-500">
-              
+
               {/* macOS Title Bar */}
               <div className="flex items-center justify-between px-3.5 py-2.5 bg-neutral-900/95 rounded-t-xl border-b border-neutral-800 text-xs font-ndot tracking-wider">
                 <div className="flex items-center gap-2">
