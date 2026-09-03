@@ -17,8 +17,8 @@ export const Hero = () => {
       />
       <div className="landing-dot-grid opacity-35 dark:opacity-15" aria-hidden="true" />
 
-      {/* Top Left Brand Logo - Mascot perched above and biting the text (Completely static) */}
-      <a href="/" className="landing-top-logo select-none" aria-label="Snitch home">
+      {/* Top Left Brand Logo - Mascot perched above and biting the text (Desktop Only) */}
+      <a href="/" className="landing-top-logo hidden md:block select-none" aria-label="Snitch home">
         <div className="relative flex flex-col items-center select-none pointer-events-none">
           <img
             src="/inki-biting-clean.png"
@@ -38,8 +38,8 @@ export const Hero = () => {
         </div>
       </a>
 
-      {/* Top Right Social Pill (Theme toggle now in menu bar) */}
-      <div className="landing-top-social" aria-label="Creator links">
+      {/* Top Right Social Pill (Desktop Only) */}
+      <div className="landing-top-social hidden md:flex" aria-label="Creator links">
         <a
           href="https://github.com/codewithevilxd/snitch"
           className="landing-social-pill font-ndot tracking-wider text-xs"

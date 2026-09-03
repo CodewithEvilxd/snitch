@@ -1208,16 +1208,9 @@ body.theme-dark .landing-feature-card:hover .feat-pill {
 }
 
 @media (max-width: 900px) {
-  .landing-top-logo {
-    top: 14px;
-  }
-
-  .landing-top-logo span {
-    display: none;
-  }
-
+  .landing-top-logo,
   .landing-top-social {
-    display: none;
+    display: none !important;
   }
 
   .landing-hero-layout {
