@@ -51,39 +51,69 @@ export const Hero = () => {
         </a>
       </div>
 
-      {/* Floating macOS Liquid-Glass Island Toolbar (Preserved as Requested!) */}
-      <header className="landing-island landing-island-glass" aria-label="Landing navigation">
-        <div className="landing-island-dismiss-hint" aria-hidden="true"></div>
-        <div className="landing-island-glass-effect" aria-hidden="true"></div>
-        <div className="landing-island-glass-tint" aria-hidden="true"></div>
-        <div className="landing-island-glass-shine" aria-hidden="true"></div>
-        
-        <a className="landing-island-brand" href="/" aria-label="Snitch">
-          <img src="/inki.png" alt="Snitch" className="landing-island-logo" />
+      {/* ─── REAL macOS Dynamic Island Toolbar (Dock Magnification & Spring Physics) ─── */}
+      <header className="mac-island" aria-label="Quick Studio Launcher">
+        <div className="mac-island-rim" aria-hidden="true" />
+
+        {/* Mascot brand with glowing macOS engine status dot */}
+        <a className="mac-island-brand group" href="/" aria-label="Snitch Studio Home">
+          <img src="/inki.png" alt="Snitch" className="mac-island-logo select-none" draggable={false} />
+          <span className="mac-island-status-dot" title="Local Engine Ready" />
         </a>
 
-        <div className="landing-island-group capture-modes">
-          <a className="landing-island-btn" href="/capture.html" aria-label="Capture region" title="Capture Region">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M4 8V4h4"></path><path d="M4 16v4h4"></path><path d="M16 4h4v4"></path><path d="M16 20h4v-4"></path><rect x="8" y="8" width="8" height="8" rx="1" strokeDasharray="2 2"></rect>
-            </svg>
+        {/* macOS Hairline Vertical Divider */}
+        <div className="mac-island-divider" aria-hidden="true" />
+
+        {/* Capture Action Modes with Dock Magnification & Tooltips */}
+        <div className="mac-island-modes">
+          <a className="mac-island-btn group" href="/capture.html" aria-label="Capture Region">
+            <div className="mac-island-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <path d="M4 8V4h4"></path><path d="M4 16v4h4"></path><path d="M16 4h4v4"></path><path d="M16 20h4v-4"></path><rect x="8" y="8" width="8" height="8" rx="1" strokeDasharray="2 2"></rect>
+              </svg>
+            </div>
+            <div className="mac-island-tooltip font-ndot">
+              <span>REGION</span>
+              <kbd>C</kbd>
+            </div>
           </a>
-          <a className="landing-island-btn" href="/capture.html" aria-label="Capture window" title="Capture Window">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 8h18"></path><circle cx="5.5" cy="6" r=".5" fill="currentColor"></circle><circle cx="7.5" cy="6" r=".5" fill="currentColor"></circle><circle cx="9.5" cy="6" r=".5" fill="currentColor"></circle>
-            </svg>
+
+          <a className="mac-island-btn group" href="/capture.html" aria-label="Capture Window">
+            <div className="mac-island-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 8h18"></path><circle cx="5.5" cy="6" r=".5" fill="currentColor"></circle><circle cx="7.5" cy="6" r=".5" fill="currentColor"></circle><circle cx="9.5" cy="6" r=".5" fill="currentColor"></circle>
+              </svg>
+            </div>
+            <div className="mac-island-tooltip font-ndot">
+              <span>WINDOW</span>
+              <kbd>W</kbd>
+            </div>
           </a>
-          <a className="landing-island-btn" href="/capture.html" aria-label="Capture fullscreen" title="Capture Fullscreen">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M6 21h12"></path><path d="M12 17v4"></path>
-            </svg>
+
+          <a className="mac-island-btn group" href="/capture.html" aria-label="Capture Fullscreen">
+            <div className="mac-island-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M6 21h12"></path><path d="M12 17v4"></path>
+              </svg>
+            </div>
+            <div className="mac-island-tooltip font-ndot">
+              <span>FULLSCREEN</span>
+              <kbd>F</kbd>
+            </div>
           </a>
-          <a className="landing-island-btn" href="/capture.html" aria-label="Upload file" title="Upload Image">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="17 8 12 3 7 8"></polyline>
-              <line x1="12" y1="3" x2="12" y2="15"></line>
-            </svg>
+
+          <a className="mac-island-btn group" href="/capture.html" aria-label="Upload Image">
+            <div className="mac-island-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <div className="mac-island-tooltip font-ndot">
+              <span>UPLOAD</span>
+              <kbd>U</kbd>
+            </div>
           </a>
         </div>
       </header>
