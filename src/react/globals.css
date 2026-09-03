@@ -5,7 +5,9 @@
 /* ─── Authentic Nothing Phone Fonts (NDot57 & NType82) ─── */
 @font-face {
   font-family: "NDot57";
-  src: url("/fonts/Ndot57-Regular.otf") format("opentype");
+  src: url("/fonts/Ndot57-Regular.woff2") format("woff2"),
+       url("/fonts/Ndot57-Regular.woff") format("woff"),
+       url("/fonts/Ndot57-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -13,7 +15,9 @@
 
 @font-face {
   font-family: "NType82-Headline";
-  src: url("/fonts/NType82-Headline.otf") format("opentype");
+  src: url("/fonts/NType82-Headline.woff2") format("woff2"),
+       url("/fonts/NType82-Headline.woff") format("woff"),
+       url("/fonts/NType82-Headline.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -21,7 +25,9 @@
 
 @font-face {
   font-family: "NType82";
-  src: url("/fonts/NType82-Regular.otf") format("opentype");
+  src: url("/fonts/NType82-Regular.woff2") format("woff2"),
+       url("/fonts/NType82-Regular.woff") format("woff"),
+       url("/fonts/NType82-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -29,33 +35,43 @@
 
 @theme {
   --font-ndot: "NDot57", monospace;
-  --font-ntype: "NType82", "Inter", -apple-system, sans-serif;
-  --font-sans: "NType82", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: "NDot57", "NType82-Headline", sans-serif;
-  --font-heading: "NDot57", "NType82-Headline", sans-serif;
-  --font-brand: "NDot57", sans-serif;
+  --font-ntype: "NDot57", monospace;
+  --font-sans: "NDot57", monospace;
+  --font-display: "NDot57", monospace;
+  --font-heading: "NDot57", monospace;
+  --font-brand: "NDot57", monospace;
   --font-tech: "NDot57", monospace;
-  --font-mono: "NDot57", "JetBrains Mono", monospace;
+  --font-mono: "NDot57", monospace;
+}
+
+/* Universal Nothing Phone Dot-Matrix Font Across ENTIRE Homepage */
+html,
+body,
+.landing-page,
+.landing-page *,
+.landing-page p,
+.landing-page span,
+.landing-page div,
+.landing-page a,
+.landing-page button,
+.landing-page h1,
+.landing-page h2,
+.landing-page h3,
+.landing-page h4,
+.landing-page kbd,
+.landing-page strong,
+.landing-island,
+.landing-island * {
+  font-family: "NDot57", monospace !important;
 }
 
 /* Explicit Nothing Phone Font Utilities */
-.font-ndot {
-  font-family: "NDot57", monospace !important;
-}
-
-.font-ntype {
-  font-family: "NType82", sans-serif !important;
-}
-
-.font-ntype-headline {
-  font-family: "NType82-Headline", sans-serif !important;
-}
-
-.font-mono {
-  font-family: "NDot57", monospace !important;
-}
-
-.font-heading {
+.font-ndot,
+.font-ntype,
+.font-ntype-headline,
+.font-mono,
+.font-heading,
+.font-sans {
   font-family: "NDot57", monospace !important;
 }
 
