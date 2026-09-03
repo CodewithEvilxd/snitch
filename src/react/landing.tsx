@@ -2,22 +2,19 @@ import React from 'react';
 import { ThemeProvider } from 'next-themes';
 import { Analytics } from '@vercel/analytics/react';
 import { Hero } from '../components/blocks/hero';
-import { StudioShowcase } from '../components/blocks/studio-showcase';
 import { Features } from '../components/blocks/features';
-import { Skiper39 } from '../components/ui/skiper-ui/skiper39';
+import { ShortcutsMatrix } from '../components/blocks/shortcuts-matrix';
+import { FooterMinimal } from '../components/blocks/footer-minimal';
 import './globals.css';
 
 export default function Landing() {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <div className="landing-page min-h-screen font-sans antialiased selection:bg-black/10">
+      <div className="landing-page min-h-screen font-sans antialiased selection:bg-neutral-900/10 dark:selection:bg-white/10 bg-white dark:bg-[#0c0d12] text-neutral-900 dark:text-neutral-100 transition-colors duration-200">
         <Hero />
-        <StudioShowcase />
         <Features />
-        
-        <footer className="landing-footer relative z-10 w-full h-[60vh] min-h-[440px] overflow-hidden">
-          <Skiper39 />
-        </footer>
+        <ShortcutsMatrix />
+        <FooterMinimal />
       </div>
       <Analytics />
     </ThemeProvider>
