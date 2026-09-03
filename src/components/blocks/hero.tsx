@@ -76,14 +76,14 @@ export const Hero = () => {
       </header>
 
       {/* ─── CLEANSHOT X STYLE ASYMMETRIC SPLIT-SCREEN HERO ─── */}
-      <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-36 sm:pt-40 lg:pt-44 pb-20 px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+      <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-32 sm:pt-36 lg:pt-36 pb-16 px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
           
           {/* LEFT COLUMN: Clean, Confident, Non-Centered Typography (5.5 cols) */}
-          <div className="lg:col-span-5 flex flex-col items-start text-left">
+          <div className="lg:col-span-5 flex flex-col items-start text-left lg:pt-3">
             
             {/* Left-Aligned Confident Headline */}
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.8rem] font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.04] mb-5">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.8rem] font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.04] mb-4">
               Capture every pixel. <br />
               <span className="font-serif-italic font-normal text-neutral-400 dark:text-neutral-500">
                 Annotate with ease.
@@ -91,12 +91,12 @@ export const Hero = () => {
             </h1>
 
             {/* Subtext */}
-            <p className="font-sans text-base sm:text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed mb-8 max-w-md">
+            <p className="font-sans text-base sm:text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed mb-6 max-w-md">
               Instant captures, clean vector annotations, and zero-latency local redaction. 100% client-side, open-source, and private forever.
             </p>
 
             {/* Left-Aligned Action Row */}
-            <div className="flex flex-wrap items-center gap-4 mb-8">
+            <div className="flex flex-wrap items-center gap-4 mb-6">
               <a
                 href="/capture.html"
                 className="inline-flex items-center gap-3 h-12 px-6 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-white dark:hover:bg-neutral-100 dark:text-neutral-950 font-heading text-sm font-semibold shadow-xl shadow-neutral-900/10 dark:shadow-white/5 hover:scale-[1.02] active:scale-[0.98] transition-all"
@@ -125,7 +125,7 @@ export const Hero = () => {
             </div>
 
             {/* Quiet Luxury Trust Points */}
-            <div className="flex flex-col gap-2 pt-5 border-t border-neutral-200/80 dark:border-neutral-800/80 font-mono text-xs text-neutral-400 dark:text-neutral-500 w-full max-w-md">
+            <div className="flex flex-col gap-2 pt-4 border-t border-neutral-200/80 dark:border-neutral-800/80 font-mono text-xs text-neutral-400 dark:text-neutral-500 w-full max-w-md">
               <div className="flex items-center gap-2">
                 <span className="text-emerald-500 font-bold">✓</span>
                 <span>100% Client-Side · Zero Telemetry & Cloud Storage</span>
